@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-
-using MySql.Data.MySqlClient;
 
 namespace Project_CS_Morgane_Cam
 {
