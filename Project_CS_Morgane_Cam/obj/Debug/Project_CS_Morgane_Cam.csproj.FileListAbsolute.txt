@@ -1,0 +1,15 @@
+C:\Users\Morgane\Desktop\Morgane\INSA\4INFO\Object Oriented Programming\Project_CS_Morgane_Cam\Project_CS_Morgane_Cam\bin\Debug\Project_CS_Morgane_Cam.exe.config
+C:\Users\Morgane\Desktop\Morgane\INSA\4INFO\Object Oriented Programming\Project_CS_Morgane_Cam\Project_CS_Morgane_Cam\bin\Debug\Project_CS_Morgane_Cam.exe
+C:\Users\Morgane\Desktop\Morgane\INSA\4INFO\Object Oriented Programming\Project_CS_Morgane_Cam\Project_CS_Morgane_Cam\bin\Debug\Project_CS_Morgane_Cam.pdb
+C:\Users\Morgane\Desktop\Morgane\INSA\4INFO\Object Oriented Programming\Project_CS_Morgane_Cam\Project_CS_Morgane_Cam\obj\Debug\Project_CS_Morgane_Cam.csprojAssemblyReference.cache
+C:\Users\Morgane\Desktop\Morgane\INSA\4INFO\Object Oriented Programming\Project_CS_Morgane_Cam\Project_CS_Morgane_Cam\obj\Debug\Project_CS_Morgane_Cam.Properties.Resources.resources
+C:\Users\Morgane\Desktop\Morgane\INSA\4INFO\Object Oriented Programming\Project_CS_Morgane_Cam\Project_CS_Morgane_Cam\obj\Debug\Project_CS_Morgane_Cam.csproj.GenerateResource.cache
+C:\Users\Morgane\Desktop\Morgane\INSA\4INFO\Object Oriented Programming\Project_CS_Morgane_Cam\Project_CS_Morgane_Cam\obj\Debug\Project_CS_Morgane_Cam.csproj.CoreCompileInputs.cache
+C:\Users\Morgane\Desktop\Morgane\INSA\4INFO\Object Oriented Programming\Project_CS_Morgane_Cam\Project_CS_Morgane_Cam\obj\Debug\Project_CS_Morgane_Cam.exe
+C:\Users\Morgane\Desktop\Morgane\INSA\4INFO\Object Oriented Programming\Project_CS_Morgane_Cam\Project_CS_Morgane_Cam\obj\Debug\Project_CS_Morgane_Cam.pdb
+C:\Users\Morgane\Desktop\Morgane\INSA\4INFO\Object Oriented Programming\Project_CS_Morgane_Cam\Project_CS_Morgane_Cam\bin\Debug\MySql.Data.dll
+C:\Users\Morgane\Desktop\Morgane\INSA\4INFO\Object Oriented Programming\Project_CS_Morgane_Cam\Project_CS_Morgane_Cam\bin\Debug\MySql.Data.xml
+C:\Users\Morgane\Desktop\Morgane\INSA\4INFO\Object Oriented Programming\Project_CS_Morgane_Cam\Project_CS_Morgane_Cam\obj\Debug\Project_CS_Morgane_Cam.csproj.CopyComplete
+C:\Users\Morgane\Desktop\Morgane\INSA\4INFO\Object Oriented Programming\Project_CS_Morgane_Cam\Project_CS_Morgane_Cam\obj\Debug\Project_CS_Morgane_Cam.MyMovieApplication.resources
+C:\Users\Morgane\Desktop\Morgane\INSA\4INFO\Object Oriented Programming\Project_CS_Morgane_Cam\Project_CS_Morgane_Cam\obj\Debug\Project_CS_Morgane_Cam.Search.resources
+C:\Users\Morgane\Desktop\Morgane\INSA\4INFO\Object Oriented Programming\Project_CS_Morgane_Cam\Project_CS_Morgane_Cam\obj\Debug\Project_CS_Morgane_Cam.Add.resources
