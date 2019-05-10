@@ -33,6 +33,7 @@ namespace Project_CS_Morgane_Cam
             passwordLabel.Location = new Point(200, 148);
             password.Show();
             password.Location = new Point(260, 148);
+            password.PasswordChar = '•';
             password.Clear();
 
             connectionLabel.Show();
