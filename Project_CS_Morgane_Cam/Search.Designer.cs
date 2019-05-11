@@ -82,7 +82,7 @@
             "United States of America"});
             this.checkedListCountry.Location = new System.Drawing.Point(14, 125);
             this.checkedListCountry.Name = "checkedListCountry";
-            this.checkedListCountry.Size = new System.Drawing.Size(163, 40);
+            this.checkedListCountry.Size = new System.Drawing.Size(175, 40);
             this.checkedListCountry.Sorted = true;
             this.checkedListCountry.TabIndex = 36;
             this.checkedListCountry.UseCompatibleTextRendering = true;
@@ -246,9 +246,9 @@
             this.searchTitle.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.searchTitle.Location = new System.Drawing.Point(221, 26);
             this.searchTitle.Name = "searchTitle";
-            this.searchTitle.Size = new System.Drawing.Size(158, 23);
+            this.searchTitle.Size = new System.Drawing.Size(151, 23);
             this.searchTitle.TabIndex = 28;
-            this.searchTitle.Text = "Search a movie by: ";
+            this.searchTitle.Text = "Search movies by: ";
             this.searchTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.searchTitle.Visible = false;
             // 
@@ -303,11 +303,10 @@
             "Spy",
             "Sword and sandal / Peplum",
             "Thriller",
-            "War",
-            "Western"});
+            "War"});
             this.genreChoice.Location = new System.Drawing.Point(14, 96);
             this.genreChoice.Name = "genreChoice";
-            this.genreChoice.Size = new System.Drawing.Size(140, 23);
+            this.genreChoice.Size = new System.Drawing.Size(150, 23);
             this.genreChoice.Sorted = true;
             this.genreChoice.TabIndex = 40;
             this.genreChoice.Visible = false;
@@ -364,7 +363,7 @@
             this.Controls.Add(this.searchTitle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Search";
-            this.Text = "Search a movie";
+            this.Text = "Search movies";
             this.groupTypeSearch.ResumeLayout(false);
             this.groupTypeSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchImage)).EndInit();

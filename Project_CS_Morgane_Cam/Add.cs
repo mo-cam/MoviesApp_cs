@@ -9,6 +9,7 @@ namespace Project_CS_Morgane_Cam
     {
         private int id_movie { get; set; }
         private int id_genre { get; set; }
+        private int nb_genres { get; set; }
         private int id_actor { get; set; }
         private int nb_actors { get; set; }
         private int id_producer { get; set; }
@@ -19,6 +20,7 @@ namespace Project_CS_Morgane_Cam
             InitializeComponent();
             id_movie = 1;
             id_genre = 0;
+            nb_genres = 1;
             nb_actors = 1;
             nb_producers = 1;
         }
@@ -61,7 +63,7 @@ namespace Project_CS_Morgane_Cam
                 if (read1.GetValue(1).ToString().Equals(nameTextBox.Text))
                 {
                     MessageBox.Show("This movie already exists.");
-                    this.Close();
+                    return;
                 }
                 else
                 {
@@ -108,18 +110,29 @@ namespace Project_CS_Morgane_Cam
                 {
                     id_genre = int.Parse(read1.GetValue(0).ToString());
                 }
+                nb_genres++;
             }
             read1.Close();
 
-            while(id_genre == 0) { }
+            if(id_genre == 0)
+            {
+                id_genre = nb_genres;
+                MySqlConnection connection2 = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
+                try { connection2.Open(); }
+                catch (MySqlException myExcep) { MessageBox.Show("Not connected: " + myExcep.ToString()); }
+                string sql2 = "INSERT INTO `genre` (`ID_Genre`, `Name_Genre`) VALUES (" + id_genre + ", '" + genreChoice.Text + "')";
+                MySqlCommand command2 = new MySqlCommand(sql2, connection2);
+                MySqlDataReader read2 = command2.ExecuteReader();
+                read2.Close();
+            }
 
-            MySqlConnection connection2 = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
-            try { connection2.Open(); }
+            MySqlConnection connection3 = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
+            try { connection3.Open(); }
             catch (MySqlException myExcep) { MessageBox.Show("Not connected: " + myExcep.ToString()); }
-            string sql2 = "INSERT INTO `belong` (`ID_Genre`, `ID_Movie`) VALUES (" + id_genre + ", '" + id_movie + "')";
-            MySqlCommand command2 = new MySqlCommand(sql2, connection2);
-            MySqlDataReader read2 = command2.ExecuteReader();
-            read2.Close();
+            string sql3 = "INSERT INTO `belong` (`ID_Genre`, `ID_Movie`) VALUES (" + id_genre + ", '" + id_movie + "')";
+            MySqlCommand command3 = new MySqlCommand(sql3, connection3);
+            MySqlDataReader read3 = command3.ExecuteReader();
+            read3.Close();
 
             searchTitle.Text = "Add an actor who plays in this movie";
             searchTitle.Location = new Point(306 - (int)searchTitle.Width / 2, 18);
@@ -242,7 +255,7 @@ namespace Project_CS_Morgane_Cam
             addProducer();
 
             searchTitle.Text = "Movie successfully added";
-            searchTitle.Location = new Point(171, 142);
+            searchTitle.Location = new Point(306 - (int)searchTitle.Width / 2, 148);
 
             nameLabel.Hide();
             nameTextBox.Hide();

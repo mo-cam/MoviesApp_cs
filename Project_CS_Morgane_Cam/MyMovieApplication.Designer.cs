@@ -35,8 +35,8 @@
             this.loginLabel = new System.Windows.Forms.Label();
             this.password = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
-            this.connectionLabel = new System.Windows.Forms.Label();
-            this.deconnectionLabel = new System.Windows.Forms.Label();
+            this.signInLabel = new System.Windows.Forms.Label();
+            this.signOutLabel = new System.Windows.Forms.Label();
             this.searchButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -98,31 +98,31 @@
             this.passwordLabel.TabIndex = 32;
             this.passwordLabel.Text = "Password:";
             // 
-            // connectionLabel
+            // signInLabel
             // 
-            this.connectionLabel.AutoSize = true;
-            this.connectionLabel.BackColor = System.Drawing.Color.White;
-            this.connectionLabel.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.connectionLabel.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.connectionLabel.Location = new System.Drawing.Point(12, 101);
-            this.connectionLabel.Name = "connectionLabel";
-            this.connectionLabel.Size = new System.Drawing.Size(52, 15);
-            this.connectionLabel.TabIndex = 33;
-            this.connectionLabel.Text = "Connect";
-            this.connectionLabel.Click += new System.EventHandler(this.connectionLabel_Click);
+            this.signInLabel.AutoSize = true;
+            this.signInLabel.BackColor = System.Drawing.Color.White;
+            this.signInLabel.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signInLabel.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.signInLabel.Location = new System.Drawing.Point(12, 101);
+            this.signInLabel.Name = "signInLabel";
+            this.signInLabel.Size = new System.Drawing.Size(43, 15);
+            this.signInLabel.TabIndex = 33;
+            this.signInLabel.Text = "Sign in";
+            this.signInLabel.Click += new System.EventHandler(this.connectionLabel_Click);
             // 
-            // deconnectionLabel
+            // signOutLabel
             // 
-            this.deconnectionLabel.AutoSize = true;
-            this.deconnectionLabel.BackColor = System.Drawing.Color.Transparent;
-            this.deconnectionLabel.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deconnectionLabel.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.deconnectionLabel.Location = new System.Drawing.Point(259, 338);
-            this.deconnectionLabel.Name = "deconnectionLabel";
-            this.deconnectionLabel.Size = new System.Drawing.Size(93, 15);
-            this.deconnectionLabel.TabIndex = 34;
-            this.deconnectionLabel.Text = "Deconnection";
-            this.deconnectionLabel.Click += new System.EventHandler(this.deconnectionLabel_Click);
+            this.signOutLabel.AutoSize = true;
+            this.signOutLabel.BackColor = System.Drawing.Color.Transparent;
+            this.signOutLabel.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signOutLabel.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.signOutLabel.Location = new System.Drawing.Point(259, 338);
+            this.signOutLabel.Name = "signOutLabel";
+            this.signOutLabel.Size = new System.Drawing.Size(59, 15);
+            this.signOutLabel.TabIndex = 34;
+            this.signOutLabel.Text = "Sign out";
+            this.signOutLabel.Click += new System.EventHandler(this.deconnectionLabel_Click);
             // 
             // searchButton
             // 
@@ -133,7 +133,7 @@
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(74, 47);
             this.searchButton.TabIndex = 35;
-            this.searchButton.Text = "Search a movie";
+            this.searchButton.Text = "Search movies";
             this.searchButton.UseVisualStyleBackColor = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
@@ -158,8 +158,8 @@
             this.ClientSize = new System.Drawing.Size(596, 391);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.searchButton);
-            this.Controls.Add(this.deconnectionLabel);
-            this.Controls.Add(this.connectionLabel);
+            this.Controls.Add(this.signOutLabel);
+            this.Controls.Add(this.signInLabel);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.password);
             this.Controls.Add(this.loginLabel);
@@ -180,8 +180,8 @@
         private System.Windows.Forms.Label loginLabel;
         private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.Label passwordLabel;
-        private System.Windows.Forms.Label connectionLabel;
-        private System.Windows.Forms.Label deconnectionLabel;
+        private System.Windows.Forms.Label signInLabel;
+        private System.Windows.Forms.Label signOutLabel;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Button addButton;
     }

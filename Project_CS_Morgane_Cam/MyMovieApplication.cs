@@ -23,22 +23,22 @@ namespace Project_CS_Morgane_Cam
             loginLabel.Show();
             loginLabel.Location = new Point(200, 118);
             login.Show();
-            login.Location = new Point(260, 118);
+            login.Location = new Point(270, 118);
             login.Clear();
 
             passwordLabel.Show();
             passwordLabel.Location = new Point(200, 148);
             password.Show();
-            password.Location = new Point(260, 148);
+            password.Location = new Point(270, 148);
             password.PasswordChar = '•';
             password.Clear();
 
-            connectionLabel.Show();
-            connectionLabel.Location = new Point(273, 192);
+            signInLabel.Show();
+            signInLabel.Location = new Point(306 - (int)signInLabel.Width / 2, 188);
 
             searchButton.Hide();
             addButton.Hide();
-            deconnectionLabel.Hide();
+            signOutLabel.Hide();
         }
 
         public void setMenuPage()
@@ -47,7 +47,7 @@ namespace Project_CS_Morgane_Cam
             login.Hide();
             passwordLabel.Hide();
             password.Hide();
-            connectionLabel.Hide();
+            signInLabel.Hide();
 
             titleHomePage.Show();
             titleHomePage.Text = "Welcome in your cinema";
@@ -57,8 +57,8 @@ namespace Project_CS_Morgane_Cam
 
             addButton.Show();
 
-            deconnectionLabel.Show();
-            deconnectionLabel.Location = new Point(306 - (int)deconnectionLabel.Width / 2, 338);
+            signOutLabel.Show();
+            signOutLabel.Location = new Point(306 - (int)signOutLabel.Width / 2, 338);
         }
 
         /* ------------- Call new pages when we choose the action we want to do ------------- */
@@ -68,7 +68,11 @@ namespace Project_CS_Morgane_Cam
             if (login.Text.Equals("user") && password.Text.Equals("123456"))
                 setMenuPage();
             else
-                MessageBox.Show("Wrong login and/or password. Try again.");
+            {
+                MessageBox.Show("Incorrect login and/or password.");
+                login.Clear();
+                password.Clear();
+            }
         }
 
         private void deconnectionLabel_Click(object sender, EventArgs e)
