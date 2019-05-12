@@ -51,7 +51,7 @@
             this.titleHomePage.Name = "titleHomePage";
             this.titleHomePage.Size = new System.Drawing.Size(292, 39);
             this.titleHomePage.TabIndex = 9;
-            this.titleHomePage.Text = "Welcome in your cinema";
+            this.titleHomePage.Text = "Welcome to your cinema";
             this.titleHomePage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // mymovies

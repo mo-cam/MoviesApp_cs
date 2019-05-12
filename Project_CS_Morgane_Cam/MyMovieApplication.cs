@@ -50,7 +50,7 @@ namespace Project_CS_Morgane_Cam
             signInLabel.Hide();
 
             titleHomePage.Show();
-            titleHomePage.Text = "Welcome in your cinema";
+            titleHomePage.Text = "Welcome to your cinema";
             titleHomePage.Location = new Point(306 - (int)titleHomePage.Width / 2, 12);
 
             searchButton.Show();
