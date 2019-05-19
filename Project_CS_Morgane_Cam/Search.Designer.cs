@@ -87,7 +87,7 @@
             this.checkedListCountry.TabIndex = 36;
             this.checkedListCountry.UseCompatibleTextRendering = true;
             this.checkedListCountry.Visible = false;
-            this.checkedListCountry.SelectedIndexChanged += new System.EventHandler(this.checkedListCountry_SelectedIndexChanged);
+            this.checkedListCountry.SelectedIndexChanged += new System.EventHandler(this.CheckedListCountry_SelectedIndexChanged);
             // 
             // textBox
             // 
@@ -110,7 +110,7 @@
             this.validationTypeSearch.TabIndex = 33;
             this.validationTypeSearch.Text = "Validate";
             this.validationTypeSearch.Visible = false;
-            this.validationTypeSearch.Click += new System.EventHandler(this.validationTypeSearch_Click);
+            this.validationTypeSearch.Click += new System.EventHandler(this.ValidationTypeSearch_Click);
             // 
             // homePageLabel
             // 
@@ -123,7 +123,7 @@
             this.homePageLabel.Size = new System.Drawing.Size(78, 15);
             this.homePageLabel.TabIndex = 32;
             this.homePageLabel.Text = "Home page";
-            this.homePageLabel.Click += new System.EventHandler(this.homePageLabel_Click);
+            this.homePageLabel.Click += new System.EventHandler(this.HomePageLabel_Click);
             // 
             // typeSearchLabel
             // 
@@ -265,7 +265,7 @@
             this.searchImage.TabIndex = 38;
             this.searchImage.TabStop = false;
             this.searchImage.Visible = false;
-            this.searchImage.Click += new System.EventHandler(this.searchImage_Click);
+            this.searchImage.Click += new System.EventHandler(this.SearchImage_Click);
             // 
             // menuLabel
             // 
@@ -278,7 +278,7 @@
             this.menuLabel.Size = new System.Drawing.Size(42, 15);
             this.menuLabel.TabIndex = 39;
             this.menuLabel.Text = "Menu";
-            this.menuLabel.Click += new System.EventHandler(this.menuLabel_Click);
+            this.menuLabel.Click += new System.EventHandler(this.MenuLabel_Click);
             // 
             // genreChoice
             // 
@@ -310,7 +310,7 @@
             this.genreChoice.Sorted = true;
             this.genreChoice.TabIndex = 40;
             this.genreChoice.Visible = false;
-            this.genreChoice.SelectedIndexChanged += new System.EventHandler(this.genreChoice_SelectedIndexChanged);
+            this.genreChoice.SelectedIndexChanged += new System.EventHandler(this.GenreChoice_SelectedIndexChanged);
             // 
             // yearChoice
             // 
@@ -341,7 +341,7 @@
             this.yearChoice.Size = new System.Drawing.Size(60, 23);
             this.yearChoice.Sorted = true;
             this.yearChoice.TabIndex = 41;
-            this.yearChoice.SelectedIndexChanged += new System.EventHandler(this.yearChoice_SelectedIndexChanged);
+            this.yearChoice.SelectedIndexChanged += new System.EventHandler(this.YearChoice_SelectedIndexChanged);
             // 
             // Search
             // 

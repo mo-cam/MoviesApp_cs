@@ -25,7 +25,7 @@ namespace Project_CS_Morgane_Cam
             nb_producers = 1;
         }
 
-        private void setMoviePage()
+        private void SetMoviePage()
         {
             searchTitle.Show();
             searchTitle.Text = "Add a movie";
@@ -50,13 +50,20 @@ namespace Project_CS_Morgane_Cam
             menuLabel.Location = new Point(306 - (int)menuLabel.Width / 2, 338);
         }
 
-        private void validationMovie_Click(object sender, EventArgs e)
+        private void ValidationMovie_Click(object sender, EventArgs e)
         {
-            MySqlConnection connection1 = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
-            try { connection1.Open(); }
-            catch (MySqlException myExcep) { MessageBox.Show("Not connected: " + myExcep.ToString()); }
+            MySqlConnection connection = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
+            try
+            {
+                connection.Open();
+            }
+            catch (MySqlException myExcep)
+            {
+                MessageBox.Show("Not connected: " + myExcep.ToString());
+            }
+
             string sql1 = "SELECT `ID_Movie`,`Title_Movie` FROM `movie`";
-            MySqlCommand command1 = new MySqlCommand(sql1, connection1);
+            MySqlCommand command1 = new MySqlCommand(sql1, connection);
             MySqlDataReader read1 = command1.ExecuteReader();
             while (read1.Read())
             {
@@ -70,13 +77,14 @@ namespace Project_CS_Morgane_Cam
                     id_movie++;
                 }
             }
+            read1.Close();
 
-            MySqlConnection connection = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
-            try { connection.Open(); }
-            catch (MySqlException myExcep) { MessageBox.Show("Not connected: " + myExcep.ToString()); }
-            string sql = "INSERT INTO `movie` (`ID_Movie`, `Title_Movie`, `Year_Movie`, `Country_Movie`) VALUES (" + id_movie + ", '" + nameTextBox.Text + "', '" + yearTextBox.Text + "', '" + countryTextBox.Text + "')";
-            MySqlCommand command = new MySqlCommand(sql, connection);
-            MySqlDataReader read = command.ExecuteReader();
+            string sql2 = "INSERT INTO `movie` (`ID_Movie`, `Title_Movie`, `Year_Movie`, `Country_Movie`) VALUES (" + id_movie + ", '" + nameTextBox.Text + "', '" + yearTextBox.Text + "', '" + countryTextBox.Text + "')";
+            MySqlCommand command2 = new MySqlCommand(sql2, connection);
+            MySqlDataReader read2 = command2.ExecuteReader();
+            read2.Close();
+
+            connection.Close();
 
             searchTitle.Text = "Add a genre to the movie";
             searchTitle.Location = new Point(306 - (int)searchTitle.Width / 2, 18);
@@ -96,13 +104,20 @@ namespace Project_CS_Morgane_Cam
             validationGenre.Location = new Point(433, 229);
         }
 
-        private void validationGenre_Click(object sender, EventArgs e)
+        private void ValidationGenre_Click(object sender, EventArgs e)
         {
-            MySqlConnection connection1 = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
-            try { connection1.Open(); }
-            catch (MySqlException myExcep) { MessageBox.Show("Not connected: " + myExcep.ToString()); }
+            MySqlConnection connection = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
+            try
+            {
+                connection.Open();
+            }
+            catch (MySqlException myExcep)
+            {
+                MessageBox.Show("Not connected: " + myExcep.ToString());
+            }
+
             string sql1 = "SELECT * FROM `genre`";
-            MySqlCommand command1 = new MySqlCommand(sql1, connection1);
+            MySqlCommand command1 = new MySqlCommand(sql1, connection);
             MySqlDataReader read1 = command1.ExecuteReader();
             while (read1.Read())
             {
@@ -117,22 +132,18 @@ namespace Project_CS_Morgane_Cam
             if(id_genre == 0)
             {
                 id_genre = nb_genres;
-                MySqlConnection connection2 = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
-                try { connection2.Open(); }
-                catch (MySqlException myExcep) { MessageBox.Show("Not connected: " + myExcep.ToString()); }
                 string sql2 = "INSERT INTO `genre` (`ID_Genre`, `Name_Genre`) VALUES (" + id_genre + ", '" + genreChoice.Text + "')";
-                MySqlCommand command2 = new MySqlCommand(sql2, connection2);
+                MySqlCommand command2 = new MySqlCommand(sql2, connection);
                 MySqlDataReader read2 = command2.ExecuteReader();
                 read2.Close();
             }
 
-            MySqlConnection connection3 = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
-            try { connection3.Open(); }
-            catch (MySqlException myExcep) { MessageBox.Show("Not connected: " + myExcep.ToString()); }
             string sql3 = "INSERT INTO `belong` (`ID_Genre`, `ID_Movie`) VALUES (" + id_genre + ", '" + id_movie + "')";
-            MySqlCommand command3 = new MySqlCommand(sql3, connection3);
+            MySqlCommand command3 = new MySqlCommand(sql3, connection);
             MySqlDataReader read3 = command3.ExecuteReader();
             read3.Close();
+
+            connection.Close();
 
             searchTitle.Text = "Add an actor who plays in this movie";
             searchTitle.Location = new Point(306 - (int)searchTitle.Width / 2, 18);
@@ -165,9 +176,9 @@ namespace Project_CS_Morgane_Cam
             validationActor.Location = new Point(433, 229);
         }
 
-        private void newActorLabel_Click(object sender, EventArgs e)
+        private void NewActorLabel_Click(object sender, EventArgs e)
         {
-            addActor();
+            AddActor();
 
             nameTextBox.Clear();
             yearTextBox.Clear();
@@ -175,9 +186,9 @@ namespace Project_CS_Morgane_Cam
             fourthInfoTextBox.Clear();
         }
 
-        private void validationActor_Click(object sender, EventArgs e)
+        private void ValidationActor_Click(object sender, EventArgs e)
         {
-            addActor();
+            AddActor();
 
             searchTitle.Text = "Add an producer who produced this movie";
             searchTitle.Location = new Point(306 - (int)searchTitle.Width / 2, 18);
@@ -198,15 +209,22 @@ namespace Project_CS_Morgane_Cam
             validationProducer.Location = new Point(433, 229);
         }
 
-        private void addActor()
+        private void AddActor()
         {
             id_actor = 0;
 
-            MySqlConnection connection1 = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
-            try { connection1.Open(); }
-            catch (MySqlException myExcep) { MessageBox.Show("Not connected: " + myExcep.ToString()); }
+            MySqlConnection connection = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
+            try
+            {
+                connection.Open();
+            }
+            catch (MySqlException myExcep)
+            {
+                MessageBox.Show("Not connected: " + myExcep.ToString());
+            }
+
             string sql1 = "SELECT ID_Actor,Name_Actor FROM `actor`";
-            MySqlCommand command1 = new MySqlCommand(sql1, connection1);
+            MySqlCommand command1 = new MySqlCommand(sql1, connection);
             MySqlDataReader read1 = command1.ExecuteReader();
             while (read1.Read())
             {
@@ -221,28 +239,24 @@ namespace Project_CS_Morgane_Cam
             if (id_actor == 0)
             {
                 id_actor = nb_actors;
-                MySqlConnection connection2 = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
-                try { connection2.Open(); }
-                catch (MySqlException myExcep) { MessageBox.Show("Not connected: " + myExcep.ToString()); }
                 string sql2 = "INSERT INTO `actor` (`ID_Actor`, `Name_Actor`, `Age_Actor`, `Nationality_Actor`, `Characters_Actor`) " +
                     "VALUES (" + id_actor + ", '" + nameTextBox.Text + "', '" + yearTextBox.Text + "', '" + countryTextBox.Text + "', '" + fourthInfoTextBox.Text + "')";
-                MySqlCommand command2 = new MySqlCommand(sql2, connection2);
+                MySqlCommand command2 = new MySqlCommand(sql2, connection);
                 MySqlDataReader read2 = command2.ExecuteReader();
                 read2.Close();
             }
 
-            MySqlConnection connection3 = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
-            try { connection3.Open(); }
-            catch (MySqlException myExcep) { MessageBox.Show("Not connected: " + myExcep.ToString()); }
             string sql3 = "INSERT INTO `play` (`ID_Actor`, `ID_Movie`) VALUES ('" + id_actor + "', '" + id_movie + "')";
-            MySqlCommand command3 = new MySqlCommand(sql3, connection3);
+            MySqlCommand command3 = new MySqlCommand(sql3, connection);
             MySqlDataReader read3 = command3.ExecuteReader();
             read3.Close();
+
+            connection.Close();
         }
 
-        private void newProducerLabel_Click(object sender, EventArgs e)
+        private void NewProducerLabel_Click(object sender, EventArgs e)
         {
-            addProducer();
+            AddProducer();
 
             nameTextBox.Clear();
             yearTextBox.Clear();
@@ -250,9 +264,9 @@ namespace Project_CS_Morgane_Cam
             fourthInfoTextBox.Clear();
         }
 
-        private void validationProducer_Click(object sender, EventArgs e)
+        private void ValidationProducer_Click(object sender, EventArgs e)
         {
-            addProducer();
+            AddProducer();
 
             searchTitle.Text = "Movie successfully added";
             searchTitle.Location = new Point(306 - (int)searchTitle.Width / 2, 148);
@@ -269,15 +283,22 @@ namespace Project_CS_Morgane_Cam
             validationProducer.Hide();
         }
 
-        private void addProducer()
+        private void AddProducer()
         {
             id_producer = 0;
 
-            MySqlConnection connection1 = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
-            try { connection1.Open(); }
-            catch (MySqlException myExcep) { MessageBox.Show("Not connected: " + myExcep.ToString()); }
+            MySqlConnection connection = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
+            try
+            {
+                connection.Open();
+            }
+            catch (MySqlException myExcep)
+            {
+                MessageBox.Show("Not connected: " + myExcep.ToString());
+            }
+
             string sql1 = "SELECT ID_Producer,Name_Producer FROM `producer`";
-            MySqlCommand command1 = new MySqlCommand(sql1, connection1);
+            MySqlCommand command1 = new MySqlCommand(sql1, connection);
             MySqlDataReader read1 = command1.ExecuteReader();
             while (read1.Read())
             {
@@ -292,26 +313,22 @@ namespace Project_CS_Morgane_Cam
             if (id_producer == 0)
             {
                 id_producer = nb_producers;
-                MySqlConnection connection2 = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
-                try { connection2.Open(); }
-                catch (MySqlException myExcep) { MessageBox.Show("Not connected: " + myExcep.ToString()); }
                 string sql2 = "INSERT INTO `producer` (`ID_Producer`, `Name_Producer`, `Age_Producer`, `Nationality_Producer`, `Company_Producer`) " +
                     "VALUES (" + id_producer + ", '" + nameTextBox.Text + "', '" + yearTextBox.Text + "', '" + countryTextBox.Text + "', '" + fourthInfoTextBox.Text + "')";
-                MySqlCommand command2 = new MySqlCommand(sql2, connection2);
+                MySqlCommand command2 = new MySqlCommand(sql2, connection);
                 MySqlDataReader read2 = command2.ExecuteReader();
                 read2.Close();
             }
 
-            MySqlConnection connection3 = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
-            try { connection3.Open(); }
-            catch (MySqlException myExcep) { MessageBox.Show("Not connected: " + myExcep.ToString()); }
             string sql3 = "INSERT INTO `produce` (`ID_Producer`, `ID_Movie`) VALUES ('" + id_producer + "', '" + id_movie + "')";
-            MySqlCommand command3 = new MySqlCommand(sql3, connection3);
+            MySqlCommand command3 = new MySqlCommand(sql3, connection);
             MySqlDataReader read3 = command3.ExecuteReader();
             read3.Close();
+
+            connection.Close();
         }
 
-        private void menuLabel_Click(object sender, EventArgs e)
+        private void MenuLabel_Click(object sender, EventArgs e)
         {
             this.Close();
         }

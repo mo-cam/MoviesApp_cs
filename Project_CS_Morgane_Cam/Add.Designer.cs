@@ -59,7 +59,7 @@
             this.menuLabel.Size = new System.Drawing.Size(42, 15);
             this.menuLabel.TabIndex = 41;
             this.menuLabel.Text = "Menu";
-            this.menuLabel.Click += new System.EventHandler(this.menuLabel_Click);
+            this.menuLabel.Click += new System.EventHandler(this.MenuLabel_Click);
             // 
             // searchTitle
             // 
@@ -142,7 +142,7 @@
             this.validationMovie.Size = new System.Drawing.Size(35, 30);
             this.validationMovie.TabIndex = 48;
             this.validationMovie.Text = ">>";
-            this.validationMovie.Click += new System.EventHandler(this.validationMovie_Click);
+            this.validationMovie.Click += new System.EventHandler(this.ValidationMovie_Click);
             // 
             // validationGenre
             // 
@@ -156,7 +156,7 @@
             this.validationGenre.TabIndex = 49;
             this.validationGenre.Text = ">>";
             this.validationGenre.Visible = false;
-            this.validationGenre.Click += new System.EventHandler(this.validationGenre_Click);
+            this.validationGenre.Click += new System.EventHandler(this.ValidationGenre_Click);
             // 
             // validationActor
             // 
@@ -170,7 +170,7 @@
             this.validationActor.TabIndex = 50;
             this.validationActor.Text = ">>";
             this.validationActor.Visible = false;
-            this.validationActor.Click += new System.EventHandler(this.validationActor_Click);
+            this.validationActor.Click += new System.EventHandler(this.ValidationActor_Click);
             // 
             // fourthInfo
             // 
@@ -205,7 +205,7 @@
             this.newActorLabel.TabIndex = 53;
             this.newActorLabel.Text = "NEW";
             this.newActorLabel.Visible = false;
-            this.newActorLabel.Click += new System.EventHandler(this.newActorLabel_Click);
+            this.newActorLabel.Click += new System.EventHandler(this.NewActorLabel_Click);
             // 
             // genreChoice
             // 
@@ -251,7 +251,7 @@
             this.validationProducer.TabIndex = 55;
             this.validationProducer.Text = ">>";
             this.validationProducer.Visible = false;
-            this.validationProducer.Click += new System.EventHandler(this.validationProducer_Click);
+            this.validationProducer.Click += new System.EventHandler(this.ValidationProducer_Click);
             // 
             // newProducerLabel
             // 
@@ -265,7 +265,7 @@
             this.newProducerLabel.TabIndex = 56;
             this.newProducerLabel.Text = "NEW";
             this.newProducerLabel.Visible = false;
-            this.newProducerLabel.Click += new System.EventHandler(this.newProducerLabel_Click);
+            this.newProducerLabel.Click += new System.EventHandler(this.NewProducerLabel_Click);
             // 
             // Add
             // 

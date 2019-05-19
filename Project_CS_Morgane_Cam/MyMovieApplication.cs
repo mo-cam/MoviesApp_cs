@@ -9,12 +9,12 @@ namespace Project_CS_Morgane_Cam
         public MyMovieApplication()
         {
             InitializeComponent();
-            setConnectionPage();
+            SetConnectionPage();
         }
 
         /* ------------------------------ Initialisation pages ------------------------------ */
 
-        private void setConnectionPage()
+        private void SetConnectionPage()
         {
             titleHomePage.Show();
             titleHomePage.Text = "Connection";
@@ -41,7 +41,7 @@ namespace Project_CS_Morgane_Cam
             signOutLabel.Hide();
         }
 
-        public void setMenuPage()
+        public void SetMenuPage()
         {
             loginLabel.Hide();
             login.Hide();
@@ -63,10 +63,10 @@ namespace Project_CS_Morgane_Cam
 
         /* ------------- Call new pages when we choose the action we want to do ------------- */
 
-        private void connectionLabel_Click(object sender, EventArgs e)
+        private void ConnectionLabel_Click(object sender, EventArgs e)
         {
             if (login.Text.Equals("user") && password.Text.Equals("123456"))
-                setMenuPage();
+                SetMenuPage();
             else
             {
                 MessageBox.Show("Incorrect login and/or password.");
@@ -75,18 +75,18 @@ namespace Project_CS_Morgane_Cam
             }
         }
 
-        private void deconnectionLabel_Click(object sender, EventArgs e)
+        private void DeconnectionLabel_Click(object sender, EventArgs e)
         {
-            setConnectionPage();
+            SetConnectionPage();
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
             Search search = new Search();
             search.ShowDialog();
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
             Add add = new Add();
             add.ShowDialog();

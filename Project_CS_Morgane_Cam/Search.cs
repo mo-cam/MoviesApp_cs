@@ -11,12 +11,12 @@ namespace Project_CS_Morgane_Cam
         public Search()
         {
             InitializeComponent();
-            setHomePage();
+            SetHomePage();
         }
 
         /* ------------------------------ Initialisation pages ------------------------------ */
 
-        private void setHomePage()
+        private void SetHomePage()
         {
             searchTitle.Show();
             searchTitle.Text = "Search initialisation";
@@ -43,7 +43,7 @@ namespace Project_CS_Morgane_Cam
             resultSearch.Hide();
         }
 
-        private void setActorPage()
+        private void SetActorPage()
         {
             searchTitle.Text = "Search a movie by an actor's name";
             searchTitle.Location = new Point(306 - (int)searchTitle.Size.Width / 2, 18);
@@ -66,7 +66,7 @@ namespace Project_CS_Morgane_Cam
             searchImage.Location = new Point(382, 68);
         }
 
-        private void setCountryPage()
+        private void SetCountryPage()
         {
             searchTitle.Text = "Search a movie by country";
             searchTitle.Location = new Point(306 - (int)searchTitle.Size.Width / 2, 18);
@@ -85,7 +85,7 @@ namespace Project_CS_Morgane_Cam
             checkedListCountry.ClearSelected();
         }
 
-        private void setGenrePage()
+        private void SetGenrePage()
         {
             searchTitle.Text = "Search a movie by its genre";
             searchTitle.Location = new Point(306 - (int)searchTitle.Size.Width / 2, 18);
@@ -103,7 +103,7 @@ namespace Project_CS_Morgane_Cam
             genreChoice.Location = new Point(190, 74);
         }
 
-        private void setProducerPage()
+        private void SetProducerPage()
         {
             searchTitle.Text = "Search a movie by a director/producer/writer's name";
             searchTitle.Location = new Point(306 - (int)searchTitle.Size.Width / 2, 18);
@@ -126,7 +126,7 @@ namespace Project_CS_Morgane_Cam
             searchImage.Location = new Point(382, 68);
         }
 
-        private void setYearPage()
+        private void SetYearPage()
         {
             searchTitle.Text = "Search a movie by its released year";
             searchTitle.Location = new Point(306 - (int)searchTitle.Size.Width / 2, 18);
@@ -144,7 +144,7 @@ namespace Project_CS_Morgane_Cam
             yearChoice.Location = new Point(240, 74);
         }
 
-        private void setTitlePage()
+        private void SetTitlePage()
         {
             searchTitle.Text = "Search a movie by its title";
             searchTitle.Location = new Point(306 - (int)searchTitle.Size.Width / 2, 18);
@@ -169,34 +169,40 @@ namespace Project_CS_Morgane_Cam
 
         /* --------------- Call new pages when the type of search is selected --------------- */
 
-        private void validationTypeSearch_Click(object sender, EventArgs e)
+        private void ValidationTypeSearch_Click(object sender, EventArgs e)
         {
-            if (actorButton.Checked) setActorPage();
-            if (countryButton.Checked) setCountryPage();
-            if (genreButton.Checked) setGenrePage();
-            if (producerButton.Checked) setProducerPage();
-            if (yearButton.Checked) setYearPage();
-            if (titleButton.Checked) setTitlePage();
+            if (actorButton.Checked) SetActorPage();
+            if (countryButton.Checked) SetCountryPage();
+            if (genreButton.Checked) SetGenrePage();
+            if (producerButton.Checked) SetProducerPage();
+            if (yearButton.Checked) SetYearPage();
+            if (titleButton.Checked) SetTitlePage();
         }
 
-        private void homePageLabel_Click(object sender, EventArgs e)
+        private void HomePageLabel_Click(object sender, EventArgs e)
         {
-            setHomePage();
+            SetHomePage();
         }
 
-        private void menuLabel_Click(object sender, EventArgs e)
+        private void MenuLabel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         /* --------------------------------- Do the search --------------------------------- */
 
-        private KeyValuePair<string[,], int> doSearch()
+        private KeyValuePair<string[,], int> DoSearch()
         {
             MySqlConnection connection = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
 
-            try { connection.Open(); }
-            catch (MySqlException myExcep) { MessageBox.Show("Not connected: " + myExcep.ToString()); }
+            try
+            {
+                connection.Open();
+            }
+            catch (MySqlException myExcep)
+            {
+                MessageBox.Show("Not connected: " + myExcep.ToString());
+            }
 
             string[,] movies = new string[300, 6];
             int moviesSize = 0;
@@ -252,15 +258,18 @@ namespace Project_CS_Morgane_Cam
                 }
             }
 
+            read.Close();
+            connection.Close();
+
             return new KeyValuePair<string[,], int>(movies, moviesSize);
         }
 
-        private void searchImage_Click(object sender, EventArgs e)
+        private void SearchImage_Click(object sender, EventArgs e)
         {
             if (actorButton.Checked)
             {
-                string[,] movies = doSearch().Key;
-                int moviesSize = doSearch().Value;
+                string[,] movies = DoSearch().Key;
+                int moviesSize = DoSearch().Value;
 
                 for (int i = 0; i < moviesSize; i++)
                 {
@@ -312,8 +321,14 @@ namespace Project_CS_Morgane_Cam
             {
                 MySqlConnection connection = new MySqlConnection("database=mymovies; server=localhost; user id=root; pwd=");
 
-                try { connection.Open(); }
-                catch (MySqlException myExcep) { MessageBox.Show("Not connected: " + myExcep.ToString()); }
+                try
+                {
+                    connection.Open();
+                }
+                catch (MySqlException myExcep)
+                {
+                    MessageBox.Show("Not connected: " + myExcep.ToString());
+                }
 
                 string[,] movies = new string[300, 6];
                 int moviesSize = 0;
@@ -369,6 +384,9 @@ namespace Project_CS_Morgane_Cam
                     }
                 }
 
+                read.Close();
+                connection.Close();
+
                 for (int i = 0; i < moviesSize; i++)
                 {
                     if (movies[i, 4].ToLower().Contains(textBox.Text.ToLower()))
@@ -414,8 +432,8 @@ namespace Project_CS_Morgane_Cam
 
             if (titleButton.Checked)
             {
-                string[,] movies = doSearch().Key;
-                int moviesSize = doSearch().Value;
+                string[,] movies = DoSearch().Key;
+                int moviesSize = DoSearch().Value;
 
                 for (int i = 0; i < moviesSize; i++)
                 {
@@ -461,13 +479,11 @@ namespace Project_CS_Morgane_Cam
             }
         }
 
-        /**
-         * Select several countries if you want movies from different countries
-         */
-        private void checkedListCountry_SelectedIndexChanged(object sender, EventArgs e)
+        // Select several countries if you want movies from different countries
+        private void CheckedListCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string[,] movies = doSearch().Key;
-            int moviesSize = doSearch().Value;
+            string[,] movies = DoSearch().Key;
+            int moviesSize = DoSearch().Value;
 
             for (int i = 0; i < moviesSize; i++)
             {
@@ -512,13 +528,11 @@ namespace Project_CS_Morgane_Cam
                 resultSearch.Text = "Sorry, we don't have any movie from this country.";
         }
 
-        /**
-         * Select several genres if you want movies from different genres 
-         */
-        private void genreChoice_SelectedIndexChanged(object sender, EventArgs e)
+        // Select several genres if you want movies from different genres 
+        private void GenreChoice_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string[,] movies = doSearch().Key;
-            int moviesSize = doSearch().Value;
+            string[,] movies = DoSearch().Key;
+            int moviesSize = DoSearch().Value;
 
             for (int i = 0; i < moviesSize; i++)
             {
@@ -563,13 +577,11 @@ namespace Project_CS_Morgane_Cam
                 resultSearch.Text = "Sorry, we don't have any movie in this category.";
         }
 
-        /**
-         * You can only chose one year per one year
-         */
-        private void yearChoice_SelectedIndexChanged(object sender, EventArgs e)
+        // You can only chose one year per one year
+        private void YearChoice_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string[,] movies = doSearch().Key;
-            int moviesSize = doSearch().Value;
+            string[,] movies = DoSearch().Key;
+            int moviesSize = DoSearch().Value;
 
             for (int i = 0; i < moviesSize; i++)
             {

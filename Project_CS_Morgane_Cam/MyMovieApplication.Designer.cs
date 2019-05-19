@@ -109,7 +109,7 @@
             this.signInLabel.Size = new System.Drawing.Size(43, 15);
             this.signInLabel.TabIndex = 33;
             this.signInLabel.Text = "Sign in";
-            this.signInLabel.Click += new System.EventHandler(this.connectionLabel_Click);
+            this.signInLabel.Click += new System.EventHandler(this.ConnectionLabel_Click);
             // 
             // signOutLabel
             // 
@@ -122,7 +122,7 @@
             this.signOutLabel.Size = new System.Drawing.Size(59, 15);
             this.signOutLabel.TabIndex = 34;
             this.signOutLabel.Text = "Sign out";
-            this.signOutLabel.Click += new System.EventHandler(this.deconnectionLabel_Click);
+            this.signOutLabel.Click += new System.EventHandler(this.DeconnectionLabel_Click);
             // 
             // searchButton
             // 
@@ -135,7 +135,7 @@
             this.searchButton.TabIndex = 35;
             this.searchButton.Text = "Search movies";
             this.searchButton.UseVisualStyleBackColor = false;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // addButton
             // 
@@ -148,7 +148,7 @@
             this.addButton.TabIndex = 36;
             this.addButton.Text = "Add a movie";
             this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // MyMovieApplication
             // 

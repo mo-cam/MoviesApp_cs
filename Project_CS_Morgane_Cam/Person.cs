@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Project_CS_Morgane_Cam
+﻿namespace Project_CS_Morgane_Cam
 {
     public abstract class Person
     {
